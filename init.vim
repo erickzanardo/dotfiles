@@ -34,6 +34,7 @@ Plugin 'Shougo/deoplete.nvim'
 Plugin 'airblade/vim-rooter'
 Plugin 'ervandew/supertab'
 Plugin 'skywind3000/asyncrun.vim'
+Plugin 'natebosch/vim-lsc'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -95,6 +96,7 @@ autocmd FileType coffee setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType graphql setlocal expandtab tabstop=2 shiftwidth=2
+autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2
 
 " gradle as groovy
 au BufNewFile,BufRead *.gradle setf groovy
@@ -200,3 +202,7 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 
 " Rooter
 let g:rooter_patterns = ["Rakefile", "pom.xml", "build.gradle", "package.json"]
+
+" lsc
+let g:lsc_server_commands = {'dart': 'dart_language_server'}
+let g:lsc_auto_map = v:true

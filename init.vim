@@ -206,3 +206,8 @@ let g:rooter_patterns = ["Rakefile", "pom.xml", "build.gradle", "package.json"]
 " lsc
 let g:lsc_server_commands = {'dart': 'dart_language_server'}
 let g:lsc_auto_map = v:true
+
+" Terminal
+tnoremap <Esc> <C-\><C-n>
+command Term below new term://bash
+command VTerm vsplit term://bash

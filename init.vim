@@ -15,7 +15,6 @@ Bundle 'tpope/vim-fugitive'
 Plugin 'ekalinin/Dockerfile.vim'
 Bundle 'leafgarland/typescript-vim'
 Plugin 'editorconfig/editorconfig-vim'
-Bundle 'freeo/vim-kalisi'
 Plugin 'kchmck/vim-coffee-script'
 Plugin 'derekwyatt/vim-scala'
 Plugin 'vim-airline/vim-airline'
@@ -35,6 +34,8 @@ Plugin 'airblade/vim-rooter'
 Plugin 'ervandew/supertab'
 Plugin 'skywind3000/asyncrun.vim'
 Plugin 'natebosch/vim-lsc'
+Plugin 'keith/swift.vim'
+Plugin 'kamykn/skyhawk'
 
 call vundle#end()            " required
 filetype plugin indent on    " required
@@ -48,9 +49,9 @@ let g:jsx_ext_required = 0
 
 " Theme
 syntax enable
-colorscheme kalisi
-set background=dark
 set t_Co=256
+colorscheme skyhawk
+set background=dark
 
 set encoding=utf8
 
@@ -97,6 +98,7 @@ autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType graphql setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2
+autocmd FileType swift setlocal expandtab tabstop=4 shiftwidth=4
 
 " gradle as groovy
 au BufNewFile,BufRead *.gradle setf groovy

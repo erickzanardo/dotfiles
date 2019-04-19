@@ -92,6 +92,7 @@ autocmd FileType ruby setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType css setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType scss setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType javascript setlocal expandtab tabstop=2 shiftwidth=2
+autocmd FileType js setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType json setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType coffee setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2

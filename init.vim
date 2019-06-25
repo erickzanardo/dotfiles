@@ -5,21 +5,15 @@ filetype off                  " required
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
+Plugin 'Vundle.vim'
 Plugin 'quabug/vim-gdscript'
 Bundle 'scrooloose/nerdtree'
 Plugin 'ryanoasis/vim-devicons'
 Bundle 'kien/ctrlp.vim'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-fugitive'
 Plugin 'ekalinin/Dockerfile.vim'
-Bundle 'leafgarland/typescript-vim'
 Plugin 'editorconfig/editorconfig-vim'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'vim-airline/vim-airline'
-Bundle 'slim-template/vim-slim'
-Bundle 'nikvdp/ejs-syntax'
 Plugin 'jparise/vim-graphql'
 Plugin 'pangloss/vim-javascript'
 Plugin 'ap/vim-css-color'
@@ -30,9 +24,7 @@ Bundle 'moll/vim-node'
 Bundle 'posva/vim-vue'
 Bundle 'dart-lang/dart-vim-plugin'
 Plugin 'Shougo/deoplete.nvim'
-Plugin 'airblade/vim-rooter'
 Plugin 'ervandew/supertab'
-Plugin 'skywind3000/asyncrun.vim'
 Plugin 'natebosch/vim-lsc'
 Plugin 'keith/swift.vim'
 Plugin 'kamykn/skyhawk'
@@ -168,11 +160,6 @@ endif
 " ctrlp ignore
 set wildignore+=node_modules
 
-" Shell Shortcuts
-let g:asyncrun_open = 8
-command! -complete=file -nargs=* Npm :AsyncRun npm <args>
-command! -complete=file -nargs=* Yarn :AsyncRun yarn <args>
-
 " Trailing whitespaces
 highlight ExtraWhitespace ctermbg=red guibg=red
 match ExtraWhitespace /\s\+$/
@@ -201,9 +188,6 @@ let g:deoplete#file#enable_buffer_path = 1
 
 " Adjusting Deoplete tab order
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" Rooter
-let g:rooter_patterns = ["Rakefile", "pom.xml", "build.gradle", "package.json"]
 
 " lsc
 let g:lsc_server_commands = {'dart': 'dart_language_server'}

@@ -28,6 +28,7 @@ Plugin 'ervandew/supertab'
 Plugin 'natebosch/vim-lsc'
 Plugin 'keith/swift.vim'
 Plugin 'kamykn/skyhawk'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 call vundle#end()            " required
 filetype plugin indent on    " required

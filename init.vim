@@ -201,3 +201,6 @@ nnoremap fg <C-W>f
 tnoremap <Esc> <C-\><C-n>
 command Term below new term://bash
 command VTerm vsplit term://bash
+
+" Relative number
+set relativenumber

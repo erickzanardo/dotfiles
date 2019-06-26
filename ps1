@@ -27,6 +27,17 @@ function ps1_project_type() {
       fi
     fi
     STATUS="$STATUS ]"
+
+    REACT=`cat package.json | grep react`
+    if [ -n "$REACT" ]
+    then
+      STATUS="$STATUS[]"
+    fi
+    ELECTRON=`cat package.json | grep electron`
+    if [ -n "$ELECTRON" ]
+    then
+      STATUS="$STATUS[]"
+    fi
   fi
 
   if [ -e "bower.json" ]
@@ -47,6 +58,17 @@ function ps1_project_type() {
   if [ -e "pom.xml" ]
   then
     STATUS="$STATUS[  ]"
+  fi
+
+  if [ -e "build.gradle" ]
+  then
+    STATUS="$STATUS[ ﲎ ]"
+  fi
+
+
+  if [ -e "Podfile" ]
+  then
+    STATUS="$STATUS[  ]"
   fi
 
   echo -e $STATUS

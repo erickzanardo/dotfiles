@@ -6,15 +6,16 @@ function ps1_curr_dir() {
 
 function ps1_project_type() {
   local STATUS=""
+  local IS_MOBILE=""
 
-  if [ -e "Gemfile" ]
+  if [ -e "./Gemfile" ]
   then
-    STATUS="[ ]"
+    STATUS="[]"
   fi
 
-  if [ -e "package.json" ]
+  if [ -e "./package.json" ]
   then
-    STATUS="$STATUS[   "
+    STATUS="$STATUS["
 
     if [ -e ".nvmrc" ]
     then
@@ -26,49 +27,75 @@ function ps1_project_type() {
         STATUS="$STATUS "
       fi
     fi
-    STATUS="$STATUS ]"
+    STATUS="$STATUS]"
 
-    REACT=`cat package.json | grep react`
+    PACKAGE_CONTENT=`cat package.json`
+
+    REACT=`echo "$PACKAGE_CONTENT" | grep react`
     if [ -n "$REACT" ]
     then
       STATUS="$STATUS[]"
     fi
-    ELECTRON=`cat package.json | grep electron`
+
+    REACT_NATIVE=`echo "$PACKAGE_CONTENT" | grep react-native`
+    if [ -n "$REACT_NATIVE" ]
+    then
+      IS_MOBILE="true"
+    fi
+
+    ELECTRON=`echo "$PACKAGE_CONTENT" | grep electron`
     if [ -n "$ELECTRON" ]
     then
       STATUS="$STATUS[]"
     fi
   fi
 
-  if [ -e "bower.json" ]
+  if [ -e "./bower.json" ]
   then
-    STATUS="$STATUS[ ]"
+    STATUS="$STATUS[]"
   fi
 
-  if [ -e "gulpfile.js" ]
+  if [ -e "./gulpfile.js" ]
   then
-    STATUS="$STATUS[ ]"
+    STATUS="$STATUS[]"
   fi
 
-  if [ -e "Dockerfile" ]
+  if [ -e "./Dockerfile" ]
   then
-    STATUS="$STATUS[ ]"
+    STATUS="$STATUS[]"
   fi
 
-  if [ -e "pom.xml" ]
+  if [ -e "./pom.xml" ]
   then
-    STATUS="$STATUS[  ]"
+    STATUS="$STATUS[]"
   fi
 
-  if [ -e "build.gradle" ]
+  if [ -e "./build.gradle" ]
   then
-    STATUS="$STATUS[ ﲎ ]"
+    STATUS="$STATUS[ﲎ]"
+    IS_MOBILE="true"
   fi
 
-
-  if [ -e "Podfile" ]
+  if [ -e "./Podfile" ]
   then
-    STATUS="$STATUS[  ]"
+    STATUS="$STATUS[]"
+    IS_MOBILE="true"
+  fi
+
+  if [ -e "./pubspec.yaml" ]
+  then
+    STATUS="$STATUS[]"
+    FLUTTER=`cat ./pubspec.yaml | grep flutter`
+
+    if [ -n "$FLUTTER" ]
+    then
+      IS_MOBILE="true"
+    fi
+  fi
+
+  if [ -n "$IS_MOBILE" ]
+  then
+    STATUS="$STATUS[]"
   fi
 
   echo -e $STATUS

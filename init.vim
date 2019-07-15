@@ -191,6 +191,10 @@ let g:deoplete#file#enable_buffer_path = 1
 " Adjusting Deoplete tab order
 let g:SuperTabDefaultCompletionType = "<c-n>"
 
+" Disable deoplete for certain files
+autocmd FileType dart
+       \ call deoplete#custom#buffer_option('auto_complete', v:false)
+
 " lsc
 let g:lsc_server_commands = {'dart': 'dart_language_server'}
 let g:lsc_auto_map = v:true

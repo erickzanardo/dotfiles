@@ -1,37 +1,41 @@
 set nocompatible              " be iMproved, required
 filetype off                  " required
 
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+call plug#begin('~/.local/share/nvim/plugged')
 
-Plugin 'Vundle.vim'
-Plugin 'quabug/vim-gdscript'
-Bundle 'scrooloose/nerdtree'
-Plugin 'ryanoasis/vim-devicons'
-Bundle 'kien/ctrlp.vim'
-Bundle 'vim-ruby/vim-ruby'
-Plugin 'ekalinin/Dockerfile.vim'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'jparise/vim-graphql'
-Plugin 'pangloss/vim-javascript'
-Plugin 'ap/vim-css-color'
-Plugin 'mxw/vim-jsx'
-Plugin 'flowtype/vim-flow'
-Plugin 'w0rp/ale'
-Bundle 'moll/vim-node'
-Bundle 'posva/vim-vue'
-Bundle 'dart-lang/dart-vim-plugin'
-Plugin 'Shougo/deoplete.nvim'
-Plugin 'ervandew/supertab'
-Plugin 'natebosch/vim-lsc'
-Plugin 'keith/swift.vim'
-Plugin 'kamykn/skyhawk'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plug 'quabug/vim-gdscript'
+Plug 'scrooloose/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+Plug 'kien/ctrlp.vim'
+Plug 'vim-ruby/vim-ruby'
+Plug 'ekalinin/Dockerfile.vim'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'vim-airline/vim-airline'
+Plug 'jparise/vim-graphql'
+Plug 'pangloss/vim-javascript'
+Plug 'ap/vim-css-color'
+Plug 'mxw/vim-jsx'
+Plug 'flowtype/vim-flow'
+Plug 'w0rp/ale'
+Plug 'moll/vim-node'
+Plug 'posva/vim-vue'
+Plug 'dart-lang/dart-vim-plugin'
 
-call vundle#end()            " required
-filetype plugin indent on    " required
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+Plug 'ervandew/supertab'
+Plug 'keith/swift.vim'
+Plug 'kamykn/skyhawk'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+call plug#end()
 
 " Search highlight and searching as you type
 set hlsearch
@@ -91,7 +95,7 @@ autocmd FileType coffee setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType graphql setlocal expandtab tabstop=2 shiftwidth=2
-autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2
+autocmd FileType dart setlocal expandtab tabstop=4 shiftwidth=4
 autocmd FileType swift setlocal expandtab tabstop=4 shiftwidth=4
 
 " gradle as groovy
@@ -194,10 +198,6 @@ let g:SuperTabDefaultCompletionType = "<c-n>"
 " Disable deoplete for certain files
 autocmd FileType dart
        \ call deoplete#custom#buffer_option('auto_complete', v:false)
-
-" lsc
-let g:lsc_server_commands = {'dart': 'dart_language_server'}
-let g:lsc_auto_map = v:true
 
 " map gf to open on a slit
 nnoremap fg <C-W>f

@@ -95,7 +95,7 @@ autocmd FileType coffee setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType yaml setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType lua setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType graphql setlocal expandtab tabstop=2 shiftwidth=2
-autocmd FileType dart setlocal expandtab tabstop=4 shiftwidth=4
+autocmd FileType dart setlocal expandtab tabstop=2 shiftwidth=2
 autocmd FileType swift setlocal expandtab tabstop=4 shiftwidth=4
 
 " gradle as groovy

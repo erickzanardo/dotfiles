@@ -1,4 +1,5 @@
 {
+  "tsserver.log": "verbose",
   "languageserver": {
     "dart": {
       "command": "dart_language_server",

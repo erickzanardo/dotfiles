@@ -3,22 +3,14 @@ filetype off                  " required
 
 call plug#begin('~/.local/share/nvim/plugged')
 
-Plug 'quabug/vim-gdscript'
 Plug 'scrooloose/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'kien/ctrlp.vim'
-Plug 'vim-ruby/vim-ruby'
-Plug 'ekalinin/Dockerfile.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'jparise/vim-graphql'
-Plug 'pangloss/vim-javascript'
 Plug 'ap/vim-css-color'
-Plug 'mxw/vim-jsx'
-Plug 'flowtype/vim-flow'
 Plug 'w0rp/ale'
-Plug 'moll/vim-node'
-Plug 'posva/vim-vue'
 Plug 'dart-lang/dart-vim-plugin'
 
 if has('nvim')
@@ -31,9 +23,10 @@ endif
 
 Plug 'ervandew/supertab'
 Plug 'keith/swift.vim'
-Plug 'kamykn/skyhawk'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'exitface/synthwave.vim'
 
 call plug#end()
 
@@ -45,10 +38,16 @@ set incsearch
 let g:jsx_ext_required = 0
 
 " Theme
-syntax enable
-set t_Co=256
-colorscheme skyhawk
 set background=dark
+color synthwave
+
+let g:airline_theme='synthwave'
+
+if has('termguicolors')
+  set termguicolors " 24-bit terminal
+else
+  let g:synthwave_termcolors=256 " 256 color mode
+endif
 
 set encoding=utf8
 
@@ -128,6 +127,8 @@ map <C-n> :NERDTreeToggle<CR>
 " erb files bugs
 au BufNewFile,BufRead *.html.erb set filetype=html
 au BufNewFile,BufRead *.js.erb set filetype=javascript
+au BufNewFile,BufRead *.ts set filetype=javascript
+au BufNewFile,BufRead *.tsx set filetype=javascript
 
 " lua views files
 au BufNewFile,BufRead *.etlua set filetype=html

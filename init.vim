@@ -12,6 +12,8 @@ Plug 'jparise/vim-graphql'
 Plug 'ap/vim-css-color'
 Plug 'w0rp/ale'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
 
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -25,6 +27,11 @@ Plug 'ervandew/supertab'
 Plug 'keith/swift.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" post install (yarn install | npm install) then load plugin only for editing supported files
+Plug 'prettier/vim-prettier', {
+  \ 'do': 'yarn install',
+  \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 Plug 'exitface/synthwave.vim'
 
@@ -127,8 +134,10 @@ map <C-n> :NERDTreeToggle<CR>
 " erb files bugs
 au BufNewFile,BufRead *.html.erb set filetype=html
 au BufNewFile,BufRead *.js.erb set filetype=javascript
+
 au BufNewFile,BufRead *.ts set filetype=javascript
-au BufNewFile,BufRead *.tsx set filetype=javascript
+" set filetypes as typescript.tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 
 " lua views files
 au BufNewFile,BufRead *.etlua set filetype=html

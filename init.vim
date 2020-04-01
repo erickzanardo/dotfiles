@@ -135,7 +135,6 @@ map <C-n> :NERDTreeToggle<CR>
 au BufNewFile,BufRead *.html.erb set filetype=html
 au BufNewFile,BufRead *.js.erb set filetype=javascript
 
-au BufNewFile,BufRead *.ts set filetype=javascript
 " set filetypes as typescript.tsx
 autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
 

@@ -1,7 +1,21 @@
 #!/bin/bash
+_dir_chomp () {
+  local p=${1/#$HOME/\~} b s
+  s=${#p}
+  while [[ $p != "${p//\/}" ]]&&(($s>$2))
+  do
+    p=${p#/}
+    [[ $p =~ \.?. ]]
+    b=$b/${BASH_REMATCH[0]}
+    p=${p#*/}
+    ((s=${#b}+${#p}))
+  done
+  echo ${b/\/~/\~}${b+/}$p
+}
 
 function ps1_curr_dir() {
-  pwd | sed "s|^$HOME|~|"
+  local HERE=$(pwd | sed "s|^$HOME|~|")
+  echo $(_dir_chomp "$HERE" 10)
 }
 
 function ps1_project_type() {

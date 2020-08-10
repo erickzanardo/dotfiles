@@ -15,14 +15,6 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
 Plug 'ervandew/supertab'
 Plug 'keith/swift.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -195,18 +187,9 @@ let g:vue_disable_pre_processors=1
 hi IndentGuidesOdd  ctermbg=black
 hi IndentGuidesEven ctermbg=darkgrey
 
-" Deoplete
-let g:deoplete#enable_at_startup = 1
 
-" Using relative path for paths autocomplete
-let g:deoplete#file#enable_buffer_path = 1
-
-" Adjusting Deoplete tab order
+" Adjusting tab order
 let g:SuperTabDefaultCompletionType = "<c-n>"
-
-" Disable deoplete for certain files
-autocmd FileType dart
-       \ call deoplete#custom#buffer_option('auto_complete', v:false)
 
 " map gf to open on a slit
 nnoremap fg <C-W>f

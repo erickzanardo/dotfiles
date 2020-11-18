@@ -1,5 +1,6 @@
 {
   "tsserver.log": "verbose",
+  "suggest.noselect": false,
   "languageserver": {
     "dart": {
       "command": "dart_language_server",

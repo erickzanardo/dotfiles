@@ -33,8 +33,8 @@ function ps1_project_type() {
 
     if [ -e ".nvmrc" ]
     then
-      CURRENT_NODE=`node --version`
-      REQUIRED_NODE=`nvm_version $(cat .nvmrc)`
+      CURRENT_NODE=$(node --version)
+      REQUIRED_NODE=$(nvm_version $(cat .nvmrc))
 
       if [ "$CURRENT_NODE" !=  "$REQUIRED_NODE" ]
       then
@@ -43,21 +43,21 @@ function ps1_project_type() {
     fi
     STATUS="$STATUS]"
 
-    PACKAGE_CONTENT=`cat package.json`
+    PACKAGE_CONTENT=$(cat package.json)
 
-    REACT=`echo "$PACKAGE_CONTENT" | grep react`
+    REACT=$(echo "$PACKAGE_CONTENT" | grep react)
     if [ -n "$REACT" ]
     then
       STATUS="$STATUS[]"
     fi
 
-    REACT_NATIVE=`echo "$PACKAGE_CONTENT" | grep react-native`
+    REACT_NATIVE=$(echo "$PACKAGE_CONTENT" | grep react-native)
     if [ -n "$REACT_NATIVE" ]
     then
       IS_MOBILE="true"
     fi
 
-    ELECTRON=`echo "$PACKAGE_CONTENT" | grep electron`
+    ELECTRON=$(echo "$PACKAGE_CONTENT" | grep electron)
     if [ -n "$ELECTRON" ]
     then
       STATUS="$STATUS[]"
@@ -99,7 +99,7 @@ function ps1_project_type() {
   if [ -e "./pubspec.yaml" ]
   then
     STATUS="$STATUS[]"
-    FLUTTER=`cat ./pubspec.yaml | grep flutter`
+    FLUTTER=$(cat ./pubspec.yaml | grep flutter)
 
     if [ -n "$FLUTTER" ]
     then
@@ -118,12 +118,12 @@ function ps1_project_type() {
 function ps1_git() {
   local STATUS=""
 
-  local branch=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+  local branch=$(git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/')
   if [ "$branch" != "" ]
   then
     STATUS=" $branch"
 
-    DIFF=`git status --porcelain`
+    DIFF=$(git status --porcelain)
     if [ "$DIFF" != "" ]
     then
       STATUS="$STATUS*"
@@ -134,4 +134,4 @@ function ps1_git() {
   echo -e $STATUS
 }
 
-export PS1=$'\u@\h \[\e[0;34m\][`ps1_curr_dir`]\[\e[0;33m\]`ps1_git`\[\e[0;32m\]`ps1_project_type`\[\e[1;32m\] \[\e[0;m\]  '
+export PS1=$'\u@\h \[\e[0;34m\][$(ps1_curr_dir)]\[\e[0;33m\]$(ps1_git)\[\e[0;32m\]$(ps1_project_type)\[\e[1;32m\] \[\e[0;m\]  '

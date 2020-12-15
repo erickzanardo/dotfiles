@@ -12,6 +12,9 @@ Plug 'jparise/vim-graphql'
 Plug 'ap/vim-css-color'
 Plug 'w0rp/ale'
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
+
 Plug 'leafgarland/typescript-vim'
 Plug 'peitalin/vim-jsx-typescript'
 
@@ -28,6 +31,9 @@ Plug 'prettier/vim-prettier', {
 Plug 'exitface/synthwave.vim'
 
 call plug#end()
+
+let g:lsc_auto_map = v:true
+
 
 " --------------------------------------------------------
 " SETTINGS START

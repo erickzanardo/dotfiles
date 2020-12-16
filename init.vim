@@ -8,17 +8,10 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'kien/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
-Plug 'jparise/vim-graphql'
 Plug 'ap/vim-css-color'
 Plug 'dart-lang/dart-vim-plugin'
-Plug 'natebosch/vim-lsc'
-Plug 'natebosch/vim-lsc-dart'
-
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
 
 Plug 'ervandew/supertab'
-Plug 'keith/swift.vim'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -30,9 +23,6 @@ Plug 'prettier/vim-prettier', {
 Plug 'exitface/synthwave.vim'
 
 call plug#end()
-
-let g:lsc_auto_map = v:true
-
 
 " --------------------------------------------------------
 " SETTINGS START
@@ -223,14 +213,6 @@ match ExtraWhitespace /\s\+$/
 " Vertical and Horizontal
 command Horizontal windo wincmd K
 command Vertical windo wincmd H
-
-" ALE config
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\}
-
-" Vue vim disabling pre processors as it really slows down vim
-let g:vue_disable_pre_processors=1
 
 " Indent
 hi IndentGuidesOdd  ctermbg=black

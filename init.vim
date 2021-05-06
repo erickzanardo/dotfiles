@@ -234,3 +234,11 @@ command VTerm vsplit term://bash
 
 " Relative number
 set relativenumber
+
+" Flutter helpers
+command FFormat !flutter format %
+command FTest !flutter test %
+
+" Flutter helpers with fvm
+command FVMFormat !fvm flutter format %
+command FVMTest !fvm flutter test %

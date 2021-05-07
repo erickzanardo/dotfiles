@@ -238,7 +238,9 @@ set relativenumber
 " Flutter helpers
 command FFormat !flutter format %
 command FTest !flutter test %
+command FBuildRunner !flutter packages pub run build_runner build
 
 " Flutter helpers with fvm
 command FVMFormat !fvm flutter format %
 command FVMTest !fvm flutter test %
+command FVMBuildRunner !fvm flutter packages pub run build_runner build

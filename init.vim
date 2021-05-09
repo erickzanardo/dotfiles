@@ -239,10 +239,10 @@ set relativenumber
 command FFormat !flutter format %
 command FTest !flutter test %
 command FBuildRunner !flutter packages pub run build_runner build
-command FCoverage !flutter test --coverage && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
+command FCoverage !flutter test --coverage && lcov --remove coverage/lcov.info '**/*.g.dart' -o coverage/lcov.info && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
 
 " Flutter helpers with fvm
 command FVMFormat !fvm flutter format %
 command FVMTest !fvm flutter test %
 command FVMBuildRunner !fvm flutter packages pub run build_runner build
-command FVMCoverage !fvm flutter test --coverage && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
+command FVMCoverage !fvm flutter test --coverage && lcov --remove coverage/lcov.info '**/*.g.dart' -o coverage/lcov.info && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html

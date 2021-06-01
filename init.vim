@@ -238,6 +238,9 @@ command VTerm vsplit term://bash
 " Relative number
 set relativenumber
 
+" We use coc for autocomplete
+let g:lsc_enable_autocomplete = v:false
+
 " Flutter helpers
 command FFormat !flutter format %
 command FTest !flutter test %

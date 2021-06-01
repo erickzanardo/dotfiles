@@ -9,7 +9,10 @@ Plug 'kien/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'vim-airline/vim-airline'
 Plug 'ap/vim-css-color'
+
 Plug 'dart-lang/dart-vim-plugin'
+Plug 'natebosch/vim-lsc'
+Plug 'natebosch/vim-lsc-dart'
 
 Plug 'ervandew/supertab'
 Plug 'Xuyuanp/nerdtree-git-plugin'
@@ -246,3 +249,7 @@ command FVMFormat !fvm flutter format %
 command FVMTest !fvm flutter test %
 command FVMBuildRunner !fvm flutter packages pub run build_runner build
 command FVMCoverage !fvm flutter test --coverage && lcov --remove coverage/lcov.info '**/*.g.dart' -o coverage/lcov.info && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
+
+" LSC proxy commands
+command GoToDef :LSClientGoToDefinitionSplit
+command GoToSuper :CocCommand flutter.gotoSuper

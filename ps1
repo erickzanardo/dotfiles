@@ -134,4 +134,4 @@ function ps1_git() {
   echo -e $STATUS
 }
 
-export PS1=$'\u@\h \[\e[0;34m\][$(ps1_curr_dir)]\[\e[0;33m\]$(ps1_git)\[\e[0;32m\]$(ps1_project_type)\[\e[1;32m\] \[\e[0;m\]  '
+export PS1=$'\[\e[1;32m\] \[\e[0;34m\][$(ps1_curr_dir)]\[\e[0;33m\]$(ps1_git)\[\e[0;32m\]$(ps1_project_type)\[\e[0;m\]  '

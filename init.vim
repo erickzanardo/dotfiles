@@ -242,6 +242,9 @@ set relativenumber
 let g:lsc_enable_autocomplete = v:false
 
 " Flutter helpers
+xmap <leader>a  <Plug>(coc-codeaction-selected)
+nmap <leader>a  <Plug>(coc-codeaction-selected)
+
 command FFormat !flutter format %
 command FTest !flutter test %
 command FBuildRunner !flutter packages pub run build_runner build

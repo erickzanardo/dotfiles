@@ -13,6 +13,11 @@ _dir_chomp () {
   echo ${b/\/~/\~}${b+/}$p
 }
 
+function current_arch() {
+  local ARCH=$(arch)
+  echo $ARCH
+}
+
 function ps1_curr_dir() {
   local HERE=$(pwd | sed "s|^$HOME|~|")
   echo $(_dir_chomp "$HERE" 10)
@@ -134,4 +139,4 @@ function ps1_git() {
   echo -e $STATUS
 }
 
-export PS1=$'\[\e[1;32m\] \[\e[0;36m\][$(ps1_curr_dir)]\[\e[0;33m\]$(ps1_git)\[\e[0;32m\]$(ps1_project_type)\[\e[0;m\]  '
+export PS1=$'\[\e[1;32m\]$(current_arch)  \[\e[0;36m\][$(ps1_curr_dir)]\[\e[0;33m\]$(ps1_git)\[\e[0;32m\]$(ps1_project_type)\[\e[0;m\]  '

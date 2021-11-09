@@ -14,7 +14,6 @@ Plug 'dart-lang/dart-vim-plugin'
 Plug 'natebosch/vim-lsc'
 Plug 'natebosch/vim-lsc-dart'
 
-Plug 'ervandew/supertab'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
@@ -25,7 +24,7 @@ Plug 'prettier/vim-prettier', {
   \ 'do': 'yarn install',
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
-Plug 'exitface/synthwave.vim'
+Plug 'ghifarit53/tokyonight-vim'
 
 call plug#end()
 
@@ -82,15 +81,14 @@ let g:jsx_ext_required = 0
 
 " Theme
 set background=dark
-color synthwave
+set termguicolors
 
-let g:airline_theme='synthwave'
+let g:tokyonight_style = 'night' " available: night, storm
+let g:tokyonight_enable_italic = 1
 
-if has('termguicolors')
-  set termguicolors " 24-bit terminal
-else
-  let g:synthwave_termcolors=256 " 256 color mode
-endif
+colorscheme tokyonight
+
+let g:airline_theme='tokyonight'
 
 set encoding=utf8
 
@@ -259,3 +257,4 @@ command FVMCoverage !fvm flutter test --coverage && lcov --remove coverage/lcov.
 " LSC proxy commands
 command GoToDef :LSClientGoToDefinitionSplit
 command GoToSuper :CocCommand flutter.gotoSuper
+command FindRef :LSClientFindReferences

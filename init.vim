@@ -25,6 +25,9 @@ Plug 'prettier/vim-prettier', {
   \ 'for': ['javascript', 'typescript', 'css', 'less', 'scss', 'json', 'graphql', 'markdown', 'vue', 'yaml', 'html'] }
 
 Plug 'ghifarit53/tokyonight-vim'
+Plug 'eliasreis54/vim-bloc-plugin', {'branch': 'main'}
+Plug 'vim-test/vim-test'
+Plug 'github/copilot.vim'
 
 call plug#end()
 
@@ -258,3 +261,5 @@ command FVMCoverage !fvm flutter test --coverage && lcov --remove coverage/lcov.
 command GoToDef :LSClientGoToDefinitionSplit
 command GoToSuper :CocCommand flutter.gotoSuper
 command FindRef :LSClientFindReferences
+
+command GG :wqa

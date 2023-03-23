@@ -250,12 +250,7 @@ command FFormat !flutter format %
 command FTest !flutter test %
 command FBuildRunner !flutter packages pub run build_runner build
 command FCoverage !flutter test --coverage && lcov --remove coverage/lcov.info '**/*.g.dart' && lcov --remove coverage/lcov.info '**/*.gen.dart' -o coverage/lcov.info && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
-
-" Flutter helpers with fvm
-command FVMFormat !fvm flutter format %
-command FVMTest !fvm flutter test %
-command FVMBuildRunner !fvm flutter packages pub run build_runner build
-command FVMCoverage !fvm flutter test --coverage && lcov --remove coverage/lcov.info '**/*.g.dart' && lcov --remove coverage/lcov.info '**/*.gen.dart' -o coverage/lcov.info && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
+command DFCoverage !dart test --coverage=coverage && dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on=routes && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
 
 " LSC proxy commands
 command GoToDef :LSClientGoToDefinitionSplit

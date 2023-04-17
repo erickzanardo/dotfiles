@@ -246,7 +246,7 @@ let g:lsc_enable_autocomplete = v:false
 xmap <leader>a  <Plug>(coc-codeaction-selected)
 nmap <leader>a  <Plug>(coc-codeaction-selected)
 
-command FFormat !flutter format %
+command DFormat !dart format %
 command FTest !flutter test %
 command FBuildRunner !flutter packages pub run build_runner build
 command FCoverage !flutter test --coverage && lcov --remove coverage/lcov.info '**/*.g.dart' && lcov --remove coverage/lcov.info '**/*.gen.dart' -o coverage/lcov.info && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html

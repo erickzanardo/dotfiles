@@ -249,7 +249,7 @@ nmap <leader>a  <Plug>(coc-codeaction-selected)
 command DFormat !dart format %
 command FTest !flutter test %
 command FBuildRunner !flutter packages pub run build_runner build
-command FCoverage !flutter test --coverage && lcov --remove coverage/lcov.info '**/*.g.dart' -o coverage/lcov.info && lcov --remove coverage/lcov.info '**/*.gen.dart' -o coverage/lcov.info && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
+command FCoverage !flutter test --coverage && lcov --remove coverage/lcov.info '**/*.g.dart' -o coverage/lcov.info --ignore-errors unused && lcov --remove coverage/lcov.info '**/*.gen.dart' -o coverage/lcov.info --ignore-errors unused && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
 command DFCoverage !dart test --coverage=coverage && dart pub global run coverage:format_coverage --lcov --in=coverage --out=coverage/lcov.info --packages=.dart_tool/package_config.json --report-on=routes && genhtml coverage/lcov.info -o coverage/html && open coverage/html/index.html
 
 " LSC proxy commands

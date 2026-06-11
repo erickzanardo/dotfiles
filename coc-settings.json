@@ -1,0 +1,33 @@
+// coc.nvim settings — https://github.com/neoclide/coc.nvim
+// (coc reads this as JSONC, so // comments and trailing commas are allowed.)
+//
+// WHERE TO PUT THIS FILE
+//   coc loads "coc-settings.json" from your nvim config dir:
+//       ~/.config/nvim/coc-settings.json
+//   Either copy it there, or open/edit it from inside nvim with:
+//       :CocConfig
+//   This repo copy is a TEMPLATE. The live file is machine-specific
+//   (absolute path below), so don't symlink it the way init.vim is linked —
+//   copy it and fill in the path for the current machine.
+//   After editing, reload it in nvim with:  :CocRestart
+//
+// WHY THIS EXISTS
+//   The coc-flutter-tools extension (a fork of coc-flutter) tries to locate
+//   the Dart SDK by running `which dart`. When Flutter's bin dir is on PATH,
+//   that resolves to Flutter's `dart` wrapper (e.g. ~/flutter/bin/dart) and
+//   the extension then looks for the analysis server at
+//       <flutter>/bin/snapshots/analysis_server.dart.snapshot
+//   But Flutter's real Dart SDK is nested, so it actually lives at
+//       <flutter>/bin/cache/dart-sdk/bin/snapshots/analysis_server.dart.snapshot
+//   The check fails, the LSP never starts ("flutter SDK not found"), and
+//   autocomplete dies (diagnostics from another LSP may still show up).
+//
+//   THE FIX: tell the extension the Flutter SDK root explicitly via
+//   "flutter.sdk.path". When set to a valid SDK root (a dir containing
+//   bin/flutter), the extension derives the analyzer from
+//   <root>/bin/cache/dart-sdk and skips the broken `which dart` guess.
+//   Set it to the Flutter root on the current machine, e.g. ~/flutter
+//   (use an absolute path; this key is not ~-expanded).
+{
+  "flutter.sdk.path": "/ABSOLUTE/PATH/TO/flutter"
+}
